@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Mysqlx;
+using Microsoft.EntityFrameworkCore;
 using WebApplication3.Models;
 using WebApplication3.Repositories;
 
@@ -16,30 +16,34 @@ public class ProductController : Controller
     {
         _crudDbContext = crudDbContext;
     }
-    
-    [HttpGet]
-    public IActionResult GetAllProducts()
-    {
-        var books = _crudDbContext.Products.ToList();
-        return Ok(books);
-    }
-    
-    [HttpGet, Route("{id}")]
-    public IActionResult GetProductById([FromRoute(Name = "id")]Guid id)
-    {
-        var book = _crudDbContext.Products
-            .FirstOrDefault(product => product.Id.Equals(id));
 
-        if (book is null)
+    [HttpGet]
+    public async Task<IActionResult> GetAllProducts()
+    {
+        var products = await _crudDbContext.Products
+            .AsNoTracking()
+            .ToListAsync();
+        
+        return Ok(products);
+    }
+
+    [HttpGet, Route("{id}")]
+    public async Task<IActionResult> GetProductById([FromRoute(Name = "id")] Guid id)
+    {
+        var product = await _crudDbContext.Products
+            .AsNoTracking()
+            .FirstOrDefaultAsync(product => product.Id.Equals(id));
+
+        if (product is null)
         {
             return NotFound();
         }
-        
-        return Ok(book);
+
+        return Ok(product);
     }
 
     [HttpPost]
-    public IActionResult CreateProduct([FromBody] ProductRm productRm)
+    public async Task<IActionResult> CreateProduct([FromBody] ProductRm productRm)
     {
         try
         {
@@ -48,16 +52,16 @@ public class ProductController : Controller
                 return BadRequest();
             }
 
-            Product product = new Product
+            Product product = new Product // TODO AutoMapper Implementation
             {
                 Name = productRm.Name,
                 Description = productRm.Description,
                 Price = productRm.Price,
                 inStock = productRm.inStock
             };
-            
-            _crudDbContext.Products.Add(product);
-            _crudDbContext.SaveChanges();
+
+            await _crudDbContext.Products.AddAsync(product);
+            await _crudDbContext.SaveChangesAsync();
             return StatusCode(201, product);
         }
         catch (Exception e)
@@ -65,6 +69,56 @@ public class ProductController : Controller
             return BadRequest(e.Message);
         }
         
-        
     }
+
+    [HttpDelete, Route("{id}")]
+    public async Task<IActionResult> DeleteProductById([FromRoute(Name = "id")] Guid id)
+    {
+        var product = await _crudDbContext.Products
+            .FirstOrDefaultAsync(product => product.Id.Equals(id));
+
+        if (product is null)
+        {
+            return NotFound();
+        }
+
+        _crudDbContext.Products.Remove(product);
+        await _crudDbContext.SaveChangesAsync();
+        return Ok(new
+        {
+            Message = "Product deleted succesfully",
+            Product = product
+        });
+    }
+    
+    [HttpPut, Route("{id}")]
+    public async Task<IActionResult> UpdateProductById([FromRoute(Name = "id")] Guid id, 
+        [FromBody] ProductRm productRm)
+    {
+        var product = await _crudDbContext.Products
+            .AsNoTracking()
+            .FirstOrDefaultAsync(product => product.Id.Equals(id));
+        
+        if (product is null)
+        {
+            return NotFound();
+        }
+
+        product.Name = productRm.Name; //TODO AutoMapper Implementation
+        product.Description = productRm.Description;
+        product.Price = productRm.Price;
+        product.inStock = productRm.inStock;
+        
+        _crudDbContext.Update(product);
+        await _crudDbContext.SaveChangesAsync();
+        return Ok(new
+        {
+            Message = "Product is updated succesfully.",
+            Product = product
+        });
+    }
+
+
+
+
 }
