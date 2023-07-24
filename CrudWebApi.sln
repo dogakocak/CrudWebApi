@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudWebApi", "CrudWebApi\CrudWebApi.csproj", "{358CD9EC-D6FD-4AD5-8BB2-7731271CAB05}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudWeb.API", "CrudWeb.API\CrudWeb.API.csproj", "{358CD9EC-D6FD-4AD5-8BB2-7731271CAB05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudWeb.Models", "CrudWeb.Models\CrudWeb.Models.csproj", "{16CB0B3D-A83B-45BC-897A-87B93C481D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudWeb.Repositories", "CrudWeb.Repositories\CrudWeb.Repositories.csproj", "{0EA61CD6-670C-4B17-B19F-94064B4C22F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +16,13 @@ Global
 		{358CD9EC-D6FD-4AD5-8BB2-7731271CAB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{358CD9EC-D6FD-4AD5-8BB2-7731271CAB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{358CD9EC-D6FD-4AD5-8BB2-7731271CAB05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16CB0B3D-A83B-45BC-897A-87B93C481D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16CB0B3D-A83B-45BC-897A-87B93C481D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16CB0B3D-A83B-45BC-897A-87B93C481D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16CB0B3D-A83B-45BC-897A-87B93C481D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EA61CD6-670C-4B17-B19F-94064B4C22F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA61CD6-670C-4B17-B19F-94064B4C22F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA61CD6-670C-4B17-B19F-94064B4C22F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA61CD6-670C-4B17-B19F-94064B4C22F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
