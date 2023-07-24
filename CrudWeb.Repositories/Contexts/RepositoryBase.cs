@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 
 namespace Repositories.Contexts;
@@ -12,15 +13,12 @@ where T: class
         CrudDbContext = crudDbContext;
     }
 
-    public IQueryable<T> FindAll(bool trackChanges)
-    {
-        throw new NotImplementedException();
-    }
+    public IQueryable<T> FindAll(bool trackChanges) =>
+        !trackChanges ? CrudDbContext.Set<T>().AsNoTracking() : CrudDbContext.Set<T>();
 
-    public IQueryable<T> FindByConditions(Expression<Func<T, bool>> exp, bool trackChanges)
-    {
-        throw new NotImplementedException();
-    }
+    public IQueryable<T> FindByConditions(Expression<Func<T, bool>> exp, bool trackChanges) =>
+        !trackChanges ? CrudDbContext.Set<T>().Where(exp).AsNoTracking() : CrudDbContext.Set<T>().Where(exp);
+    
 
     public void Create(T entity) => CrudDbContext.Set<T>().Add(entity);
 
