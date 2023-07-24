@@ -9,12 +9,12 @@
       "CrudWeb.API/1.0.0": {
         "dependencies": {
           "CrudWeb.Models": "1.0.0",
+          "CrudWeb.Repositories": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.3",
           "Microsoft.EntityFrameworkCore.Design": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.10",
           "MySql.EntityFrameworkCore": "6.0.10",
-          "Repositories": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -651,13 +651,13 @@
           "CrudWeb.Models.dll": {}
         }
       },
-      "Repositories/1.0.0": {
+      "CrudWeb.Repositories/1.0.0": {
         "dependencies": {
           "CrudWeb.Models": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.10"
         },
         "runtime": {
-          "Repositories.dll": {}
+          "CrudWeb.Repositories.dll": {}
         }
       }
     }
@@ -1142,7 +1142,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Repositories/1.0.0": {
+    "CrudWeb.Repositories/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
