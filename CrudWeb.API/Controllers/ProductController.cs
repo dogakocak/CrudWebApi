@@ -109,8 +109,8 @@ public class ProductController : Controller
         });
     }
     
-    [HttpGet("Count")] 
-    public IActionResult ProductSize()
+    [HttpGet("count")] 
+    public IActionResult GetProductsCount()
     {
         var products = _manager.Product.GetAllProducts(false);
         
