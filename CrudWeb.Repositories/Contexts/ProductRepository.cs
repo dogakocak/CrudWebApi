@@ -12,8 +12,8 @@ public class ProductRepository : RepositoryBase<Product>, IProductRepository
     public IQueryable<Product> GetAllProducts(bool trackChanges) => FindAll(trackChanges)
         .OrderBy(p => p.Name);
 
-    public IQueryable<Product> GetProductById(Guid id, bool trackChanges) =>
-        FindByConditions(p => p.Id == id,trackChanges);
+    public Product GetProductById(Guid id, bool trackChanges) =>
+        FindByConditions(p => p.Id == id, trackChanges).SingleOrDefault();
 
     public void CreateOneProduct(Product product) => Create(product);
 

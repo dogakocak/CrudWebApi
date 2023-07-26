@@ -14,7 +14,7 @@ public class RepositoryManager : IRepositoryManager
         _productRepository = new Lazy<IProductRepository>(() => new ProductRepository(crudDbContext));
     }
 
-    public IProductRepository ProductRepository => _productRepository.Value;
+    public IProductRepository Product => _productRepository.Value;
 
     public void Save() => _crudDbContext.SaveChanges();
 }

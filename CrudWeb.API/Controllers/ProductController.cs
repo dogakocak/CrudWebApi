@@ -1,7 +1,6 @@
 ﻿using CrudWeb.Models.Products;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Repositories.Contexts;
+using Repositories.Contracts;
 
 namespace WebApplication3.Controllers;
 
@@ -9,30 +8,25 @@ namespace WebApplication3.Controllers;
 [ApiController]
 public class ProductController : Controller
 {
-    // GET
-    private readonly CrudDbContext _crudDbContext;
+    private readonly IRepositoryManager _manager;
 
-    public ProductController(CrudDbContext crudDbContext)
+    public ProductController(IRepositoryManager manager)
     {
-        _crudDbContext = crudDbContext;
+        _manager = manager;
     }
 
     [HttpGet("")]
-    public async Task<IActionResult> GetAllProducts()
+    public IActionResult GetAllProducts()
     {
-        var products = await _crudDbContext.Products
-            .AsNoTracking()
-            .ToListAsync();
+        var products = _manager.Product.GetAllProducts(false);
         
         return Ok(products);
     }
 
     [HttpGet("/{id}")]
-    public async Task<IActionResult> GetProductById([FromRoute(Name = "id")] Guid id)
+    public IActionResult GetProductById([FromRoute(Name = "id")] Guid id)
     {
-        var product = await _crudDbContext.Products
-            .AsNoTracking()
-            .FirstOrDefaultAsync(product => product.Id.Equals(id));
+        var product = _manager.Product.GetProductById(id,false);
 
         if (product is null)
         {
@@ -43,7 +37,7 @@ public class ProductController : Controller
     }
 
     [HttpPost("")]
-    public async Task<IActionResult> CreateProduct([FromBody] ProductRm productRm)
+    public IActionResult CreateProduct([FromBody] ProductRm productRm)
     {
         try
         {
@@ -60,8 +54,9 @@ public class ProductController : Controller
                 inStock = productRm.inStock
             };
 
-            await _crudDbContext.Products.AddAsync(product);
-            await _crudDbContext.SaveChangesAsync();
+            _manager.Product.CreateOneProduct(product);
+            _manager.Save();
+            
             return StatusCode(201, product);
         }
         catch (Exception e)
@@ -72,17 +67,16 @@ public class ProductController : Controller
     }
 
     [HttpDelete("/{id}")]
-    public async Task<IActionResult> DeleteProductById([FromRoute(Name = "id")] Guid id)
+    public IActionResult DeleteProductById([FromRoute(Name = "id")] Guid id)
     {
-        var product = await _crudDbContext.Products
-            .FirstOrDefaultAsync(product => product.Id.Equals(id));
+        var product = _manager.Product.GetProductById(id,true);
 
         if (product is null)
         {
             return NotFound();
         }
-        _crudDbContext.Products.Remove(product);
-        await _crudDbContext.SaveChangesAsync();
+        _manager.Product.DeleteOneProduct(product);
+        _manager.Save();
         return Ok(new
         {
             Message = "Product deleted succesfully",
@@ -91,12 +85,10 @@ public class ProductController : Controller
     }
     
     [HttpPut("/{id}")]
-    public async Task<IActionResult> UpdateProductById([FromRoute(Name = "id")] Guid id, 
+    public IActionResult UpdateProductById([FromRoute(Name = "id")] Guid id, 
         [FromBody] ProductRm productRm)
     {
-        var product = await _crudDbContext.Products
-            .AsNoTracking()
-            .FirstOrDefaultAsync(product => product.Id.Equals(id));
+        var product = _manager.Product.GetProductById(id, true);
         
         if (product is null)
         {
@@ -108,13 +100,21 @@ public class ProductController : Controller
         product.Price = productRm.Price;
         product.inStock = productRm.inStock;
         
-        _crudDbContext.Update(product);
-        await _crudDbContext.SaveChangesAsync();
+        _manager.Product.UpdateOneProduct(product);
+        _manager.Save();
         return Ok(new
         {
             Message = "Product is updated succesfully.",
             Product = product
         });
+    }
+    
+    [HttpGet("Count")] 
+    public IActionResult ProductSize()
+    {
+        var products = _manager.Product.GetAllProducts(false);
+        
+        return Ok(products.Count());
     }
 
 

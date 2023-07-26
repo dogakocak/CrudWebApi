@@ -2,7 +2,7 @@
 
 public interface IRepositoryManager
 {
-    IProductRepository ProductRepository { get;  }
+    IProductRepository Product { get;  }
 
     void Save();
 }
