@@ -1,4 +1,5 @@
-﻿using CrudWeb.Models.Products;
+﻿using AutoMapper;
+using CrudWeb.Models.Products;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 
@@ -9,9 +10,11 @@ namespace WebApplication3.Controllers;
 public class ProductController : Controller
 {
     private readonly IRepositoryManager _manager;
+    private readonly IMapper _mapper;
 
-    public ProductController(IRepositoryManager manager)
+    public ProductController(IRepositoryManager manager, IMapper mapper)
     {
+        _mapper = mapper;
         _manager = manager;
     }
 
@@ -19,10 +22,10 @@ public class ProductController : Controller
     public IActionResult GetAllProducts()
     {
         var products = _manager.Product.GetAllProducts(false);
-        
-        return Ok(products);
-    }
+        var productsVm = _mapper.Map<List<Product>, List<ProductVm>>(products.ToList());
 
+        return Ok(productsVm);
+    }
     [HttpGet("/{id}")]
     public IActionResult GetProductById([FromRoute(Name = "id")] Guid id)
     {

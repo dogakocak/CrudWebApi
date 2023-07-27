@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using CrudWeb.Models.Products;
 using WebApplication3.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.ConfigureMysqlContext(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
+
+builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(ProductMappingProfile)));
 
 var app = builder.Build();
 
