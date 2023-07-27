@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "jdyV66PAvtuiiwQ9uourEtooNhgcAvxGuSDrmJo72wir4CvoFXvsghFFHvlTLD9vRCqfCyS/hS7XyGkdIg12tg==",
+  "dgSpecHash": "NIewL3rm928iKr0l+IK+Px/hr418U8+kO9ww4X8wnDMi7yDneo6ZJTt7lOtaBrIa4WAqw71rOen+eCl7z3qaeA==",
   "success": true,
   "projectFilePath": "C:\\Users\\doga_\\RiderProjects\\WebApplication3\\CrudWeb.Repositories\\CrudWeb.Repositories.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\doga_\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\doga_\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\doga_\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.10\\microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "C:\\Users\\doga_\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.10\\microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
     "C:\\Users\\doga_\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.10\\microsoft.entityframeworkcore.analyzers.6.0.10.nupkg.sha512",
