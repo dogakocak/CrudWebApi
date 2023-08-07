@@ -3,7 +3,8 @@
   <component name="EfCoreDialogsState">
     <option name="keyValueStorage">
       <map>
-        <entry key="Common:358cd9ec-d6fd-4ad5-8bb2-7731271cab05:dbContext" value="WebApplication3.Repositories.CrudDbContext" />
+        <entry key="Common:0ea61cd6-670c-4b17-b19f-94064b4c22f7:dbContext" value="Repositories.Contexts.CrudDbContext" />
+        <entry key="Common:358cd9ec-d6fd-4ad5-8bb2-7731271cab05:dbContext" value="Repositories.Contexts.CrudDbContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:noBuild" value="false" />
         <entry key="Common:outputFolder" value="Migrations" />
