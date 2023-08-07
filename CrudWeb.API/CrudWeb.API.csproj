@@ -27,6 +27,7 @@
     <ItemGroup>
       <ProjectReference Include="..\CrudWeb.Models\CrudWeb.Models.csproj" />
       <ProjectReference Include="..\CrudWeb.Repositories\CrudWeb.Repositories.csproj" />
+      <ProjectReference Include="..\CrudWeb.Services\CrudWeb.Services.csproj" />
     </ItemGroup>
 
 </Project>

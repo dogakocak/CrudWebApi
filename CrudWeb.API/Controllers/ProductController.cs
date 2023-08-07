@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CrudWeb.Models.Products;
+using CrudWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 
@@ -9,10 +10,10 @@ namespace WebApplication3.Controllers;
 [ApiController]
 public class ProductController : Controller
 {
-    private readonly IRepositoryManager _manager;
+    private readonly IServiceManager _manager;
     private readonly IMapper _mapper;
 
-    public ProductController(IRepositoryManager manager, IMapper mapper)
+    public ProductController(IServiceManager manager, IMapper mapper)
     {
         _mapper = mapper;
         _manager = manager;
@@ -21,7 +22,7 @@ public class ProductController : Controller
     [HttpGet("")]
     public IActionResult GetAllProducts()
     {
-        var products = _manager.Product.GetAllProducts(false);
+        var products = _manager.ProductService.GetAllProducts(false);
         var productsVm = _mapper.Map<List<Product>, List<ProductVm>>(products.ToList());
 
         return Ok(productsVm);
@@ -29,14 +30,16 @@ public class ProductController : Controller
     [HttpGet("/{id}")]
     public IActionResult GetProductById([FromRoute(Name = "id")] Guid id)
     {
-        var product = _manager.Product.GetProductById(id,false);
+        var product = _manager.ProductService.GetOneProductById(id,false);
 
         if (product is null)
         {
             return NotFound();
         }
 
-        return Ok(product);
+        var productVm = _mapper.Map<Product, ProductVm>(product);
+
+        return Ok(productVm);
     }
 
     [HttpPost("")]
@@ -57,8 +60,7 @@ public class ProductController : Controller
                 inStock = productRm.inStock
             };
 
-            _manager.Product.CreateOneProduct(product);
-            _manager.Save();
+            _manager.ProductService.CreateOneProduct(product);
             
             return StatusCode(201, product);
         }
@@ -72,26 +74,28 @@ public class ProductController : Controller
     [HttpDelete("/{id}")]
     public IActionResult DeleteProductById([FromRoute(Name = "id")] Guid id)
     {
-        var product = _manager.Product.GetProductById(id,true);
+        try
+        {
+            var product = _manager.ProductService.GetOneProductById(id, false);
 
-        if (product is null)
-        {
-            return NotFound();
+            _manager.ProductService.DeleteOneProduct(product, false);
+            return Ok(new
+            {
+                Message = "Product deleted succesfully",
+                Product = product
+            });
         }
-        _manager.Product.DeleteOneProduct(product);
-        _manager.Save();
-        return Ok(new
+        catch (Exception ex)
         {
-            Message = "Product deleted succesfully",
-            Product = product
-        });
+            throw new Exception(ex.Message);
+        }
     }
     
     [HttpPut("/{id}")]
     public IActionResult UpdateProductById([FromRoute(Name = "id")] Guid id, 
         [FromBody] ProductRm productRm)
     {
-        var product = _manager.Product.GetProductById(id, true);
+        var product = _manager.ProductService.GetOneProductById(id, true);
         
         if (product is null)
         {
@@ -103,8 +107,7 @@ public class ProductController : Controller
         product.Price = productRm.Price;
         product.inStock = productRm.inStock;
         
-        _manager.Product.UpdateOneProduct(product);
-        _manager.Save();
+        _manager.ProductService.UpdateOneProduct(id,product,true);
         return Ok(new
         {
             Message = "Product is updated succesfully.",
@@ -115,7 +118,7 @@ public class ProductController : Controller
     [HttpGet("count")] 
     public IActionResult GetProductsCount()
     {
-        var products = _manager.Product.GetAllProducts(false);
+        var products = _manager.ProductService.GetAllProducts(false);
         
         return Ok(products.Count());
     }

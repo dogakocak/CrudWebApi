@@ -1,5 +1,4 @@
 using System.Reflection;
-using AutoMapper;
 using CrudWeb.Models.Products;
 using WebApplication3.Extensions;
 
@@ -14,6 +13,18 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.ConfigureMysqlContext(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
+builder.Services.ConfigureServiceManager();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(ProductMappingProfile)));
 
@@ -29,6 +40,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

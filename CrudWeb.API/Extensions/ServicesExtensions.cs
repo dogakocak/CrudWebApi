@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CrudWeb.Services;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contexts;
 using Repositories.Contracts;
 
@@ -14,4 +15,8 @@ public static class ServicesExtensions
 
     public static void ConfigureRepositoryManager(this IServiceCollection services) =>
         services.AddScoped<IRepositoryManager, RepositoryManager>();
+
+    public static void ConfigureServiceManager(this IServiceCollection serviceCollection) =>
+        serviceCollection.AddScoped<IServiceManager, ServiceManager>();
+
 }
