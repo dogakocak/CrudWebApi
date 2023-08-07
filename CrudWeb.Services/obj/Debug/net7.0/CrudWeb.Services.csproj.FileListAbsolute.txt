@@ -1,0 +1,17 @@
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\bin\Debug\net7.0\CrudWeb.Services.deps.json
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\bin\Debug\net7.0\CrudWeb.Services.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\bin\Debug\net7.0\CrudWeb.Services.pdb
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\bin\Debug\net7.0\CrudWeb.Models.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\bin\Debug\net7.0\CrudWeb.Repositories.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\bin\Debug\net7.0\CrudWeb.Models.pdb
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\bin\Debug\net7.0\CrudWeb.Repositories.pdb
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.csproj.AssemblyReference.cache
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.AssemblyInfoInputs.cache
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.AssemblyInfo.cs
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.csproj.CoreCompileInputs.cache
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.csproj.CopyComplete
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\refint\CrudWeb.Services.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\CrudWeb.Services.pdb
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.Services\obj\Debug\net7.0\ref\CrudWeb.Services.dll
