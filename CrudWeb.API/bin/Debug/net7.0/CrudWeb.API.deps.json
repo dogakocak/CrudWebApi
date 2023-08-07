@@ -12,6 +12,7 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "CrudWeb.Models": "1.0.0",
           "CrudWeb.Repositories": "1.0.0",
+          "CrudWeb.Services": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.3",
           "Microsoft.EntityFrameworkCore.Design": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10",
@@ -687,6 +688,15 @@
         "runtime": {
           "CrudWeb.Repositories.dll": {}
         }
+      },
+      "CrudWeb.Services/1.0.0": {
+        "dependencies": {
+          "CrudWeb.Models": "1.0.0",
+          "CrudWeb.Repositories": "1.0.0"
+        },
+        "runtime": {
+          "CrudWeb.Services.dll": {}
+        }
       }
     }
   },
@@ -1185,6 +1195,11 @@
       "sha512": ""
     },
     "CrudWeb.Repositories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CrudWeb.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

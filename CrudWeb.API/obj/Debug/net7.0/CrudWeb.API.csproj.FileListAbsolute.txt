@@ -83,3 +83,5 @@ C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWe
 C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWeb.Repositories.pdb
 C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWeb.Services.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWeb.Services.pdb

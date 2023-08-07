@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudWeb.Models", "CrudWeb.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudWeb.Repositories", "CrudWeb.Repositories\CrudWeb.Repositories.csproj", "{0EA61CD6-670C-4B17-B19F-94064B4C22F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudWeb.Services", "CrudWeb.Services\CrudWeb.Services.csproj", "{F8B032E4-0FD1-449A-A25B-F8CE808BC9C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{0EA61CD6-670C-4B17-B19F-94064B4C22F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EA61CD6-670C-4B17-B19F-94064B4C22F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EA61CD6-670C-4B17-B19F-94064B4C22F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B032E4-0FD1-449A-A25B-F8CE808BC9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B032E4-0FD1-449A-A25B-F8CE808BC9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B032E4-0FD1-449A-A25B-F8CE808BC9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B032E4-0FD1-449A-A25B-F8CE808BC9C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
