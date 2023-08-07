@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
 using CrudWeb.Models.Products;
-using CrudWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 
-namespace WebApplication3.Controllers;
+namespace CrudWeb.Presentation.Controllers;
 
-[Route("api/products")]
 [ApiController]
-public class ProductController : Controller
+[Route("api/products")]
+public class ProductController : ControllerBase
 {
     private readonly IServiceManager _manager;
     private readonly IMapper _mapper;

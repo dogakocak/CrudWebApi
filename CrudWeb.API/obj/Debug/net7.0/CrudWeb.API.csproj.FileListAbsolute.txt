@@ -85,3 +85,8 @@ C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\AutoMa
 C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWeb.Services.dll
 C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWeb.Services.pdb
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWeb.Presentation.dll
+C:\Users\doga_\RiderProjects\WebApplication3\CrudWeb.API\bin\Debug\net7.0\CrudWeb.Presentation.pdb
